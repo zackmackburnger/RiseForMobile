@@ -75,7 +75,7 @@ local function GetURL(scripturl, rise)
         end
         return readfile((rise and "rise/" or "vape/")..scripturl)
     else
-        local res = game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/"..(rise and "RiseForRoblox" or "VapeV4ForRoblox").."/main/"..scripturl, true)
+        local res = game:HttpGet("https://raw.githubusercontent.com/Erchobg/"..(rise and "RiseForRoblox" or "vapevoidware").."/main/"..scripturl, true)
         assert(res ~= "404: Not Found", "File not found")
         return res
     end
@@ -227,7 +227,7 @@ spawn(function()
     end
     VapeGui["MainGui"].ScaledGui.Visible = false
 end)
-loadstring(GetURL("NewMainScript.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Erchobg/vapevoidware/main/NewMainScript.lua", true))()
 shared.VapeIndependent = true
 if not VapeGui then VapeGui = shared.GuiLibrary end
 local cachedassets = {}
@@ -248,7 +248,7 @@ local function getcustomassetfunc(path)
             textlabel:Remove()
         end)
         local req = requestfunc({
-            Url = "https://raw.githubusercontent.com/7GrandDadPGN/RiseForRoblox/main/"..path:gsub("rise/assets", "assets"),
+            Url = "https://raw.githubusercontent.com/Erchobg/RiseForRoblox/main/"..path:gsub("rise/assets", "assets"),
             Method = "GET"
         })
         writefile(path, req.Body)
@@ -261,7 +261,7 @@ end
 
 local teleportfunc = game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("rise/main.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/RiseForRoblox/main/main.lua", true))() end'
+		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("rise/main.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/Erchobg/RiseForRoblox/main/main.lua", true))() end'
 		if shared.VapeDeveloper then
 			teleportstr = 'shared.VapeDeveloper = true '..teleportstr
 		end
@@ -323,6 +323,22 @@ local windowtabs = {
     Info = guilib:CreateCategory({
         Name = "Info",
         Icon = "ℹ️"
+    }),
+    Voidware = guilib:CreateCategory({
+        Name = "Voidware",
+        Icon = "🛠️"
+    }),
+    GameScripts = guilib:CreateCategory({
+        Name = "GameScripts",
+        Icon = "🛠️"
+    }),
+    VoidwareDev = guilib:CreateCategory({
+        Name = "VoidwareDev",
+        Icon = "🛠️"
+    }),
+    MobileSupport = guilib:CreateCategory({
+        Name = "MobileSupport",
+        Icon = "🛠️"
     })
 }
 
@@ -332,7 +348,7 @@ infolab1.Position = UDim2.new(0, 124, 0, 155)
 infolab1.TextColor3 = Color3.fromRGB(180, 180, 180)
 infolab1.TextSize = 90
 infolab1.Font = Enum.Font.SourceSans
-infolab1.Text = "Rise"
+infolab1.Text = "Rise x Voidware"
 infolab1.TextXAlignment = Enum.TextXAlignment.Left
 infolab1.TextYAlignment = Enum.TextYAlignment.Bottom
 infolab1.BackgroundTransparency = 1
@@ -352,7 +368,7 @@ infolab3.Position = UDim2.new(0, 124, 0, 263)
 infolab3.TextColor3 = Color3.fromRGB(180, 180, 180)
 infolab3.TextSize = 30
 infolab3.Font = Enum.Font.SourceSansLight
-infolab3.Text = "Registered to xylex"
+infolab3.Text = "Registered to Voidware"
 infolab3.TextXAlignment = Enum.TextXAlignment.Left
 infolab3.TextYAlignment = Enum.TextYAlignment.Top
 infolab3.BackgroundTransparency = 1
@@ -363,6 +379,8 @@ infolab4.TextColor3 = Color3.fromRGB(130, 130, 130)
 infolab4.TextSize = 30
 infolab4.Font = Enum.Font.SourceSansLight
 infolab4.Text = [[
+Roblox Vape conversion - Xylex
+Modules - Vape and Voidware
 Orignal Client by Alan32, Technio
 Strikeless, Nicklas, Auth,
 Hazsi, Solastis
@@ -688,7 +706,7 @@ end
 
 
 local risetext = Instance.new("TextLabel")
-risetext.Text = "Rise"
+risetext.Text = "Rise x Voidware"
 risetext.Font = Enum.Font.TitilliumWeb
 risetext.TextSize = 53
 risetext.TextColor3 = Color3.new(1, 1, 1)
@@ -711,7 +729,7 @@ local risetextversion = risetext:Clone()
 local risetextcustom = risetext:Clone()
 risetextversion.TextSize = 26
 risetextversion.Text = "5.94"
-risetextversion.Position = UDim2.new(0, 66, 0, 6)
+risetextversion.Position = UDim2.new(0, 230, 0, 6)
 risetextversion.Parent = risetext
 risetextversion.TextLabel.TextSize = 26
 risetextversion.TextLabel.Text = risetextversion.Text
